@@ -1,57 +1,60 @@
+// src/components/Experiences.js
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
 
-const Experiences = () => (
-  <Container className="my-5">
-    <Row>
-      <Col>
-        <h2>Experiences</h2>
-        <div>
-          <h3>Solutions Team Leader</h3>
-          <p>NTT DATA Europe & Latam | May 2022 - May 2024</p>
-          <p>
-            I worked with the client CITIBANAMEX on behalf of NTT DATA on desktop applications and APIs for the bank's applications. The tasks I performed include the following:
+const Experiences = () => {
+  const { t } = useTranslation();
+
+  return (
+    <Container className="my-5">
+      <Row>
+        <Col>
+          <h2>{t('experiences.title')}</h2>
+          <div>
+            <h3>{t('experiences.solutionsTeamLeader.title')}</h3>
+            <p>{t('experiences.solutionsTeamLeader.company')}</p>
+            <p>{t('experiences.solutionsTeamLeader.period')}</p>
+            <p>{t('experiences.solutionsTeamLeader.description')}</p>
             <ul>
-              <li>Adding functionality to the bank's applications (application and database objects).</li>
-              <li>Change analysis to validate impacts.</li>
-              <li>Bug resolution and QA team support.</li>
-              <li>Deployment of applications and DB components using Jenkins.</li>
-              <li>Collaborating with people from other countries to resolve various issues that arise during development (specialized teams have server access, and we must raise tickets to resolve these issues).</li>
-              <li>Other tasks related to software development.</li>
+              <li>{t('experiences.solutionsTeamLeader.task1')}</li>
+              <li>{t('experiences.solutionsTeamLeader.task2')}</li>
+              <li>{t('experiences.solutionsTeamLeader.task3')}</li>
+              <li>{t('experiences.solutionsTeamLeader.task4')}</li>
+              <li>{t('experiences.solutionsTeamLeader.task5')}</li>
+              <li>{t('experiences.solutionsTeamLeader.task6')}</li>
             </ul>
-          </p>
-        </div>
-        <div>
-          <h3>.NET Software Developer</h3>
-          <p>Cecoban | March 2019 - April 2022</p>
-          <p>
-            I worked on digital billing for banks, focusing on the analysis and design of components for different clients. I participated in the migration of CFDI from version 3.3 to 4.0 for billing, as well as in the process for the Carta Porte 2.0 complement, among other projects for generating invoices for various banks.
+          </div>
+          <div>
+            <h3>{t('experiences.dotNetDeveloper.title')}</h3>
+            <p>{t('experiences.dotNetDeveloper.company')}</p>
+            <p>{t('experiences.dotNetDeveloper.period')}</p>
+            <p>{t('experiences.dotNetDeveloper.description')}</p>
             <ul>
-              <li>Requirements analysis.</li>
-              <li>Implementation and deployment of new components.</li>
-              <li>Adding functionality and modifications to existing components.</li>
-              <li>Bug resolution and QA team support for new requirements.</li>
-              <li>Analysis, design, and development of DB components.</li>
-              <li>Performance improvement of invoice processing.</li>
-              <li>Using more modern frameworks, SOLID principles, and design patterns for new components and improving existing ones.</li>
+              <li>{t('experiences.dotNetDeveloper.task1')}</li>
+              <li>{t('experiences.dotNetDeveloper.task2')}</li>
+              <li>{t('experiences.dotNetDeveloper.task3')}</li>
+              <li>{t('experiences.dotNetDeveloper.task4')}</li>
+              <li>{t('experiences.dotNetDeveloper.task5')}</li>
+              <li>{t('experiences.dotNetDeveloper.task6')}</li>
+              <li>{t('experiences.dotNetDeveloper.task7')}</li>
             </ul>
-          </p>
-        </div>
-        <div>
-          <h3>Junior Developer</h3>
-          <p>TOWA Software | January 2018 - March 2019</p>
-          <p>
-            I attended an intensive course on JAVA and C#, where we were taught best programming practices in these languages. We learned to analyze technical requirements to simplify their implementation in code, delegating responsibilities to functions and classes, making them smaller and easier to maintain. We also covered databases in SQL Server and, finally, web services.
+          </div>
+          <div>
+            <h3>{t('experiences.juniorDeveloper.title')}</h3>
+            <p>{t('experiences.juniorDeveloper.company')}</p>
+            <p>{t('experiences.juniorDeveloper.period')}</p>
+            <p>{t('experiences.juniorDeveloper.description')}</p>
             <ul>
-              <li>Course on best software practices in JAVA, .NET, and SQL Server.</li>
-              <li>Web services.</li>
-              <li>Various projects to improve programming skills.</li>
+              <li>{t('experiences.juniorDeveloper.task1')}</li>
+              <li>{t('experiences.juniorDeveloper.task2')}</li>
+              <li>{t('experiences.juniorDeveloper.task3')}</li>
             </ul>
-          </p>
-        </div>
-      </Col>
-    </Row>
-  </Container>
-);
+          </div>
+        </Col>
+      </Row>
+    </Container>
+  );
+};
 
 export default Experiences;

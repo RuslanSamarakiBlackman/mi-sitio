@@ -6,6 +6,7 @@ import Skills from './components/Skills';
 import Experiences from './components/Experiences';
 import Footer from './components/Footer';
 import Contact from './components/Contact';
+import Post from './components/Posts';
 
 const App = () => (
     <Router>
@@ -14,6 +15,7 @@ const App = () => (
         <Route path="/" element={<Home />} />
         <Route path="/skills" element={<Skills />} />
         <Route path="/experiences" element={<Experiences />} />
+        <Route path="/posts" element={<Post/>} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
       <Footer />

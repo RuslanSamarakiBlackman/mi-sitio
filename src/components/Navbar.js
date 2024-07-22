@@ -1,19 +1,34 @@
+// src/components/MyNavbar.js
 import React from 'react';
-import { Navbar, Nav } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
 
-const Navigation = () => (
-  <Navbar bg="dark" variant="dark" expand="lg">
-    <Navbar.Brand as={Link} to="/">Rafael León</Navbar.Brand>
-    <Navbar.Toggle aria-controls="basic-navbar-nav" />
-    <Navbar.Collapse id="basic-navbar-nav">
-      <Nav className="ml-auto">
-        <Nav.Link as={Link} to="/skills">Skills</Nav.Link>
-        <Nav.Link as={Link} to="/experiences">Experiences</Nav.Link>
-        <Nav.Link as={Link} to="/contact">Contact</Nav.Link>
-      </Nav>
-    </Navbar.Collapse>
-  </Navbar>
-);
+const MyNavbar = () => {
+  const { t, i18n } = useTranslation();
 
-export default Navigation;
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+    localStorage.setItem('i18nextLng', lng);
+  };
+
+  return (
+    <Navbar bg="light" expand="lg">
+      <Navbar.Brand href="/">{t('navbar.brand')}</Navbar.Brand>
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav className="me-auto">
+          <Nav.Link href="/skills">{t('navbar.skills')}</Nav.Link>
+          <Nav.Link href="/experiences">{t('navbar.experiences')}</Nav.Link>        
+          <Nav.Link href="/posts">{t('navbar.posts')}</Nav.Link>
+          <Nav.Link href="/contact">{t('navbar.contact')}</Nav.Link>
+          <NavDropdown title={t('navbar.language')} id="basic-nav-dropdown">
+            <NavDropdown.Item onClick={() => changeLanguage('en')}>{t('navbar.english')}</NavDropdown.Item>
+            <NavDropdown.Item onClick={() => changeLanguage('es')}>{t('navbar.spanish')}</NavDropdown.Item>
+          </NavDropdown>
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
+  );
+};
+
+export default MyNavbar;
