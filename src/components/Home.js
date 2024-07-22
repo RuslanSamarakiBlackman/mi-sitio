@@ -4,11 +4,21 @@ import { Container, Row, Col, Button, Image } from 'react-bootstrap';
 import { FaHandshake, FaUsers, FaExclamationCircle, FaTachometerAlt } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
 import profilePicture from '../assets/profile-picture.jpg';
-import resume from '../assets/Rafael_Leon_Resume.pdf';
+import resumeEN from '../assets/Rafael_Leon_Resume_EN.pdf'; // CV en inglés
+import resumeES from '../assets/Rafael_Leon_Resume_ES.pdf'; // CV en español
 import '../components/style.css'
 
 const Home = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const currentLanguage = i18n.language;
+
+  // Determina el archivo de CV a descargar según el idioma
+  const getResume = () => {
+    if (currentLanguage === 'es') {
+      return resumeES;
+    }
+    return resumeEN; // Valor por defecto si no es español
+  };
 
   return (
     <Container className="text-center my-5">
@@ -35,7 +45,7 @@ const Home = () => {
               <p>{t('home.persistence')}</p>
             </div>
           </div>
-          <Button variant="primary" href={resume} download>{t('home.myResume')}</Button>
+          <Button variant="primary" href={getResume()} download>{t('home.myResume')}</Button>
         </Col>
       </Row>
     </Container>
